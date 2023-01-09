@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ArticleDetail from '../components/ArticleDetail';
+import OptionItem from '../components/OptionItem';
+import ArticleList from '../components/ArticleList';
 import SectionSelector from '../components/SectionSelector';
-import ArticleList from '../components/ArticleList.js';
+import GenreList from '../components/GenreList';
 
 const GuardianContainer = () =>  {
     const [articles, setArticles] = useState([]);
@@ -35,10 +37,11 @@ const GuardianContainer = () =>  {
         <div className="Guardian-Container">
             <ArticleList articles={articles}/>
             <SectionSelector articles={articles} onGenreSelected={onGenreClicked}/>
-            {selectedArticle? <ArticleDetail article={selectedArticle}/> :null}
+            {filteredArticles? <GenreList filteredArticles={filteredArticles}/> :null}
+
 
         </div>
     )
 }
 
-export default GuardianContainer;
+export default GuardianContainer

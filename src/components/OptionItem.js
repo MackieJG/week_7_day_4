@@ -1,5 +1,5 @@
-const OptionItem = ({article,   genre}) => {
-    return <option value={genre}>{article.sectionName}</option>
+const OptionItem = ({genre}) => {
+    return <option value={genre}>{genre}</option>
 }
 
 export default OptionItem;

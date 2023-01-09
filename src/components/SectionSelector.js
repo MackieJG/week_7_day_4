@@ -1,10 +1,18 @@
+import GenreList from './GenreList';
 import OptionItem from './OptionItem';
 
 const SectionSelector = ({articles, onGenreSelected}) => {
     
-    const genreOptions = articles.map((article, index) => {
-        return <OptionItem key={index} article={article} value={article.sectionName}/>
-    })
+    const genreOptions = articles.map((article) => article.sectionName)
+        .filter( (genre, index, genres) => {
+            return index === genres.indexOf(genre);
+        })
+        .map( (genre, index) => {
+            return <OptionItem key={index} genre={genre}/>
+        })
+
+    //     
+    // })
 
     const handleChange = (event) => {
         onGenreSelected(event.target.value)
